@@ -1,0 +1,170 @@
+// Cerebro del chatbot
+
+//Sintaxis de RiveScript
+! var num = 6
+//El '+' indica lo que el bot espera recibir (Lo que el usuario introducira).
+//El '-' es la respuesta del bot.
+//El '#' sirve para atrapar todos los numeros.
+//El '*' caputra cualquier palabra que el usuario escriba.
+//El '[*]' le indica a RiveScript que puede recibir una o varias palabras se usa para buscar
+//una palabra en una oracion.
+//El '%' indica continuidad, de esta forma el bot tendrá un hilo conductor.
+//El 'set' sirve para asignar variables en tiempo de ejecucion.
+//El 'get' se usa para recuperar variables en tiempo de ejecucion.
+
+//El '#' indica que recibira un número sin importar cual sea, en este caso recibe el número, y realiza comparaciones para
+//saber si es el número creado al azar.
++ #
+* <star1> == <bot num> => Excelente! Ese es el número correcto!
+* <star1> > <bot num> => Te pasaste! Elige un número menor!
+* <star1> < <bot num> => Casi! Elige un número mayor!
+
+//Cada que el cerebro reciba un número despues de la palabra 'set' creará y asignará ese valor
+//a una variable llamada 'num'.
++ set #
+- <set num=<star>>
+
+//Cualquier texto que reciba te regresara el mensaje 'Adivina un numero entre 1 y 99999'
++ juguemos
+- OK! Adivina un numero entre 1 y 100!
+
++ hola
+- Hola, como te llamas?
+
++ * [*]
+% hola como te llamas
+- <set name=<star>>Mucho gusto en conocerte <get name>, como quieres que me llame?
+
++ [*] llamarte *
+% mucho gusto en conocerte * como quieres que me llame
+- <set myname=<star>><get myname> me agrada :)
+
++ *
+% mucho gusto en conocerte * como quieres que me llame
+- <set myname=<star>><get myname> me agrada :)
+
++ nos vemos
+- Fue un placer platicar contigo <get name>
+
++ es malo ponerle (apodos|sobrenombres) a mi hijo aunque sea de * 
+- De Preferencia evitar los calificativos.
+
++ puedo (prevenir|evitar) una crisis
+- Si pueden intentar los Rollplaying, que significa representar situaciones que pueden presentar crisis, así
+^  ya el niño ya sabrá que hacer y usted cómo reaccionar, lo prepara.
+
++ la alimentacion es especial para mi hijo
+- Es importante para cualquier persona tener una buena alimentación, pero para ellos no hay que seguir ninguna 
+^ dieta sin que un nutriólogo la indique.
+
++ [*] tips para la escuela
+- 1.- Cuando se dé un tema nuevo, retomar el anterior.\n
+^ 2.- Proporcionar más material de apoyo que a los demás.\n
+^ 3.- Horarios flexibles.\n
+^ 4.- Una lista de materiales extra de todo lo que tienen que traer y traer a su casa (son olvidadizos).
+
++ [*] (lidiar|tratar) en la escuela con un * con tdah
+- Tu como maestro debes decirle que puede organizar los materias y libros por colores y etiquetas. Tener un 
+^ pupitre ordenado, y en caso de que presentara una crisis o mal comportamiento que no implique riesgo en el 
+^ niño, hay que ignorarlo.{weight=5}
+- Que el salón de clase sea un ambiente predecible , siempre sentarlo donde mismo.
+- Siempre especificar el tema a tratar.
+- Siempre indicar los materiales necesario (no obviar nada).
+- Anticipación para los cambios de actividades.
+- Evitar ponerlos en evidencia cuando el niño no sabe hacer algo.
+- Solo compararlo con el mismo.
+- Requieren más tiempo que los demás.
+- Dividir el ejercicio en pequeñas etapas.
+
++ [*] ayudarle a que tenga un buen espacio de estudio
+- Motivarle, fomentar la superación personal, siempre tener ordenadas las cosas, eliminar ruidos y distracciones, Un pizarrón para las fechas importantes.
+
++ [*] si en la escuela hay mas * con [*]
+- En la escuela crear un grupo de apoyo e incluir a los padres además de canalizarlos con algún especialista para que haya una correcta atención.
+
++ por que mi * no obedece
+- Buscar el momento adecuado para darle una instrucción, luego confirmar la instrucción dada.
+- Solo atiende a una indicación (olvidadizo).
+
++ [*] que mi * tome enserio mis instrucciones
+- Establecer siempre contacto visual.
+- Ser más concretos al momento de enfatizar el comportamiento del niño como por ejemplo: come bien, vístete.
+
++ [*] ayudarle a estudiar a mi hijo
+- Subrayar una estrategia de estudio y leerla en voz alta.
+
++ como recompensar a mi hijo
+- Siempre cumplir las promesas hechas.
+- Valorar el esfuerzo, logros y no el éxito, que sea un recompensa emocional, con una frase (bien hecho!), pegar los trabajos en el refri, reconocimiento social.
+
++ que debo evitar para castigar a mi hijo
+- Evitar el castigo físico.
+
++ como debo hablarle a mi * para que sepa diferenciar entre * y una *   
+- Modelar el tono de voz en las diferentes situaciones.
+
++ como decirle que no a mi * cuando se aferra a que quiere algo
+- Evitar momentos de berrinche mientras se tiene autocontrol de emociones\s
+^ Ejemplo: Si siempre en el supermercado quiere un dulce, evitar pasar por esa área.
+
++ [*] para que mi * ponga atencion en [*]
+- En la escuela el niño se siente enfrente del maestro.  
+- Utilizar colores en el pizarrón sobre las palabras que se requiera resaltar.
+- Apoyos visuales, integración sensorial, todos los sentidos.
+
++ [*] que mi * comprenda la accion que esta haciendo
+- Auto instrucciones (piensa en voz alta) y poco a poco quitar las voz y que ellos piensen lo que están haciendo (verbalizar las acciones).
+
++ como (tranquilizarlo|calmarlo|relajarlo|controlarlo) en los momentos de crisis
+- Respiración profunda en los momentos difíciles (preocupación, estresado, con miedo).
+
++ como ayudar a mi * a participar en las actividades [*]
+- La rutina diaria, entre más organizada mejor, anticipar lo que va a suceder, estarle preparando para las situaciones próximas.
+
++ como debe ser el lugar para que pueda concentrarse para estudiar
+- Para hacer las tareas designar un lugar en un rincón en la pared en blanco sin ruido.
+
++ como distraer a los * en actividades fuera de casa
+- cargar una libreta para que los niños dibujen.
+
++ [*] deportivas son recomendadas para mi *
+- Deporte recomendado el taekwondo ( por la actitud, disciplina, competencia individual.
+- Natación (relaja a nivel físico).
+
++ como puedo tener un mayor control habitual de los habitos de mi *
+- Puedes crear hábitos y rutinas, tener un buen ambiente en su diario vivir, planificando horarios para poder aclarar información más fácil de entender como con relojes, visuales, etc.
+
++ debo estar al pendiente todo el tiempo de mi *
+- Se debe monitorear todas las actividades que haga el niño, porque ellos no saben el sentido común, lo que está bien o mal en todas las ocasiones es importante tener la atención adecuada.
+
++ como reaccionar cuando mi * esta en crisis
+- Lo primero es pensar que es lo que niño quiere, cual es el detonante por el cual está teniendo esa reacción, es importante no darle lo que quiere de inmediato ante su petición, esperar un tiempo aproximado de 5 min e ir incrementando.
+
++ que hacer ante un berrinche
+- Otra de las cosas que hay que hacer ante un comportamiento de berrinche es tener la consecuencia inmediata, no después porque si no el niño no sabrá porque es el regaño.
+
++ como preparar a mi * para cada actividad diferente que realice
+- Cómo ellos sufren al tener un cambio repentino en su rutina, entonces hay que prepararlo con anticipación para cada suceso que vaya a acontecer. Es Recomendable tener referentes visuales por ejemplo el reloj  para concientizar el tiempo.
+
++ realmente con estos sintomas es * que mi * tiene tdah
+- Cada niño es diferente entonces, nunca conformarse con el primer diagnóstico de un médico, siempre pedir una segunda opinión.
+
++ porque mi * no realiza las cosas que ya deberia saber
+- Es importante nunca asumir que el niño sabe lo que tiene que hacer, aunque sea por segunda vez que lo haga, repítale las instrucciones una y otra vez si es necesario y dando indicaciones específicas y no generales.
+
++ como decirlo a mi * que lo que esta  realizando  es incorrecto o que lo deje de hacer
+- Evitar utilizar el ‘’NO’’ CAMBIARLO por oraciones positivas, se cambia el desafío, por ejemplo si su hijo está corriendo, y sabe que se va a lastimar en vez de decir ‘’No corras’’, decirle Por favor vamos a hacerlo más despacio para evitar un accidente.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
